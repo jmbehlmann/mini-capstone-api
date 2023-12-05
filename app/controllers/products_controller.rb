@@ -10,7 +10,21 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(name: "marker", price: 1, image_url: "https://s3.amazonaws.com/images.penguinmagic.com/images/soc_products/original/63343-full.png", description: "It's like a pen, but more markery")
+    @product = Product.new(
+      name: params[:name],
+      price: params[:price],
+      image_url: params[:image_url],
+      description: params[:description])
+    @product.save
+    render template: "products/show"
+  end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+    @product.name = params[:name]
+    @product.price = params[:price]
+    @product.image_url = params[:image_url]
+    @product.description = params[:description]
     @product.save
     render template: "products/show"
   end
