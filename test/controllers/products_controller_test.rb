@@ -19,10 +19,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "create" do
-      assert_difference "Product.count", 1 do
-        post "/products.json", params: { name: "test product", price: 1, image_url: "image.jpg", description: "test description"  }
-      end
+    assert_difference "Product.count", 1 do
+      post "/products.json", params: { name: "test product", price: 1, image_url: "image.jpg", description: "test description"  }
     end
+  end
 
   test "update" do
     product = Product.first
@@ -34,10 +34,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "destroy" do
-      assert_difference "Product.count", -1 do
-        delete "/products/#{Product.first.id}.json"
-        assert_response 200
-      end
+    assert_difference "Product.count", -1 do
+      delete "/products/#{Product.first.id}.json"
+      assert_response 200
     end
+  end
 
 end
