@@ -10,5 +10,6 @@ product = Product.new(
   name: product_name_string,
   price: product_price_integer,
   image_url: url_string,
-  description: description_string
+  description: description_string,
+  inventory: inventory_integer
 )
