@@ -1,0 +1,7 @@
+make a controller to create an order
+add product to order
+add quantity to order
+subtract quantity from inventory (update)
+add calculated tax, subtotal, etc
+associate user with order (has_many belongs_to)
+order index action
