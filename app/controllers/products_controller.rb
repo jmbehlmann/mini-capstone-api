@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  becore_action :authenticate_admin, except: [:show, :index]
+  before_action :authenticate_admin, except: [:show, :index]
 
   def index
     @products = Product.all
