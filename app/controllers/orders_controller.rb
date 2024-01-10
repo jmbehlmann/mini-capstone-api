@@ -18,10 +18,10 @@ class OrdersController < ApplicationController
 
 
   def create
-    @carted_products = CartedProduct.all.where(user_id: current_user.id, status: "carted")
+    carted_products = CartedProduct.all.where(user_id: current_user.id, status: "carted")
 
     calculated_subtotal = 0
-    @carted_products.each do |carted_product|
+    carted_products.each do |carted_product|
       calculated_subtotal += carted_product.product.price * carted_product.quantity
     end
 
@@ -37,6 +37,14 @@ class OrdersController < ApplicationController
     )
     if @order.save
       render template: "orders/show"
+      carted_products.each do |carted_product|
+        carted_product.status = "purchased"
+        carted_product.order_id = @order.id
+        p carted_product.status
+        p carted_product.order_id
+        carted_product.save
+      end
+
     else
       render json: {message: "There was a problem creating your order"}
     end
