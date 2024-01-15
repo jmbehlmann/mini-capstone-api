@@ -1,5 +1,7 @@
 class CartedProductsController < ApplicationController
 
+  # validates :quantity, numericality: {other_than: 0 }
+
   def index
     @carted_products = CartedProduct.all.where(user_id: current_user.id, status: "carted")
     render :index
