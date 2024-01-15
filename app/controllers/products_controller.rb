@@ -14,13 +14,15 @@ class ProductsController < ApplicationController
   end
 
   def create
+    supplier = Supplier.find_by(name: params[:supplier])
+
     @product = Product.new(
       name: params[:name],
       price: params[:price],
       # image_url: params[:image_url],
       description: params[:description],
       inventory: params[:inventory],
-      supplier_id: params[:supplier_id])
+      supplier_id: supplier.id)
 
     if @product.save
       render template: "products/show"
