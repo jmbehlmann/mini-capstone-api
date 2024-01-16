@@ -9,4 +9,5 @@ json.carted_products order.carted_products.map do |carted_product|
   json.name carted_product.product.name
   json.price carted_product.product.price
   json.quantity carted_product.quantity
+  json.images carted_product.product.images
 end
