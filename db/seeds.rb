@@ -6,10 +6,25 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-product = Product.new(
-  name: product_name_string,
-  price: product_price_integer,
-  image_url: url_string,
-  description: description_string,
-  inventory: inventory_integer
-)
+# product = Product.new(
+#   name: product_name_string,
+#   price: product_price_integer,
+#   image_url: url_string,
+#   description: description_string,
+#   inventory: inventory_integer
+# )
+
+
+
+# use to generate placeholder image for all products with no image
+
+# products = Product.all
+
+# products.each do |product|
+#   if product.images.length < 1
+#     Image.create!(
+#       url: "https://media.istockphoto.com/id/1354776457/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=w3OW0wX3LyiFRuDHo9A32Q0IUMtD4yjXEvQlqyYk9O4=",
+#       product_id: product.id
+#     )
+#   end
+# end
